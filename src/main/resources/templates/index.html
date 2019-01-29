@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.grid {
+	display: grid;
+	grid-template-columns: 100px 100px 100px;
+}
+</style>
+</head>
+<body>
+
+	<div sec:authorize="isAuthenticated()">
+		<div th:if="${session.user.getName() != null}">
+			<span th:text="${session.user.getName()}" />님 반갑습니다
+		</div>
+	</div>
+
+	<div sec:authorize="hasRole('ROLE_ADMIN')"></div>
+	<div sec:authorize="hasRole('ROLE_USER')"></div>
+
+
+
+	<div id="root"></div>
+	<script src="built/app.bundle.js"></script>
+</body>
+</html>
