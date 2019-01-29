@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {Route, Link} from 'react-router-dom'
+import axios from 'axios'
 
+export default class MyPage extends Component {
 
-export default function MyPage() {
-  return (
-    <div>
-        <Link to="/mypage/register">회원가입</Link>
+  handleSubmit=async()=>{
+    const req = await axios.post('/mypage/logout')
+    const res = await req.data
+    console.log(res)
+  }
+
+  render() {
+    return (
+      <div>
+      <Link to="/mypage/register">회원가입</Link>
         <a href="/login">로그인</a>
-    </div>
-  )
+        <form onSubmit={this.handleSubmit}>
+          <button>로그아웃</button>
+        </form>
+      </div>
+    )
+  }
 }
 

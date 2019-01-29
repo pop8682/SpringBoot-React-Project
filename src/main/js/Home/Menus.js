@@ -15,11 +15,12 @@ export default class Menus extends Component {
                 pathname:`/restaurants/${categoryId}/restaurant/${storeId}/menu/${item.id}`,
                 state:{id:item.id, name:item.name, price:item.price}
             }} key={item.id} >
-              {item.name}
+              <h3>{item.name}</h3>
               {item.price}
             </Link>
           )
         })}
+        <br></br>
       </div>
     )
   }

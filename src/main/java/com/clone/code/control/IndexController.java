@@ -23,5 +23,10 @@ public class IndexController {
 	public String login() {
 		return "login";
 	}
+	
+	@RequestMapping("/deny")
+	public String deny() {
+		return "deny";
+	}
 
 }

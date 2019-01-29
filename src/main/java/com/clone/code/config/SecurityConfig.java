@@ -51,7 +51,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{	// handy  base
 			.and()
 				.httpBasic()
 			.and()
-				.csrf().disable().logout().logoutSuccessUrl("/");
+				.rememberMe().key("unique cookie").tokenValiditySeconds(60*60*24*28)
+			.and()
+				.csrf().disable()
+				.logout().deleteCookies("JSESSIONID").logoutSuccessUrl("/")
+			.and()
+				.exceptionHandling()
+				.accessDeniedPage("/deny");
 	}
 	
 
