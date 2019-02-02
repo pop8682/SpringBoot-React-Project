@@ -14,10 +14,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+ 
 
-@Data
 @Entity
 @Table(name="menu")
+@Data
 public class MenuDto {
 
 	@Id
@@ -27,7 +30,7 @@ public class MenuDto {
 	private String name;
 	private int price;
 	private String profile;
-	@OneToMany(mappedBy="menuDto", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<OptionDto> option = new ArrayList<>();
+	
 
+	
 }

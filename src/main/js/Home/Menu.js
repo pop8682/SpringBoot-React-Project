@@ -9,8 +9,6 @@ export default class Menu extends Component {
         options:[]
     }
 
-
-
     handleClick=async()=>{
         const menu_id = this.props.location.state.id
         const amount = this.state.number

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.clone.code.dao.MenuRepository;
-import com.clone.code.dao.OptionRepository;
+import com.clone.code.dao.OptionsRepository;
 import com.clone.code.dto.MenuDto;
 import com.clone.code.dto.OptionDto;
 
@@ -21,7 +21,7 @@ public class MenuController {
 	private MenuRepository menuRepository;
 	
 	@Autowired
-	private OptionRepository optionRepository;
+	private OptionsRepository optionRepository;
 	
 	@GetMapping("/api/menuDtoes/{id}")
 	public List<MenuDto> menu(@PathVariable int id){
@@ -30,7 +30,7 @@ public class MenuController {
 	
 	@PostMapping("/api/menuDtoes")
 	public void insertOption(@RequestParam MenuDto menu, @RequestParam OptionDto option) {
-		
-		
 	}
+	
+	
 }

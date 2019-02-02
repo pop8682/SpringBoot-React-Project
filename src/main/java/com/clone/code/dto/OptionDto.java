@@ -22,8 +22,6 @@ public class OptionDto {
 	private String name;
 	private int price;
 	private String belonging_item;
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="menu_id")
-	private MenuDto menuDto;
+	
 	
 }
