@@ -11,6 +11,9 @@
 
 
 ## Spring Rest
+
+> Using the camelCase on the name of dto variables recomended 
+
 1. *Expose Id* for specific class
 ```
 @Configuration
@@ -22,6 +25,7 @@ public class RepositoryConfig extends RepositoryRestConfigurerAdapter{
 	}
 }
 ```
+
 
 
 ## Thymeleaf
