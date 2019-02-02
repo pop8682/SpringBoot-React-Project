@@ -11,7 +11,7 @@
 
 
 ## Spring Rest
-1. Expose Id 
+1. *Expose Id* for specific class
 ```
 @Configuration
 public class RepositoryConfig extends RepositoryRestConfigurerAdapter{
