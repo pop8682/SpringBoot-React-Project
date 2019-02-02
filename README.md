@@ -10,6 +10,20 @@
 [Spring-security-구조](https://minwan1.github.io/2017/03/25/2017-03-25-spring-security-theory/)
 
 
+## Spring Rest
+1. Expose Id 
+```
+@Configuration
+public class RepositoryConfig extends RepositoryRestConfigurerAdapter{
+
+	@Override
+	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+		config.exposeIdsFor(OptionDto.class);
+	}
+}
+```
+
+
 ## Thymeleaf
 1. Spring security tag
 
