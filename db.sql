@@ -19,6 +19,7 @@ INSERT INTO user VALUES (null, '박병길','010-4580-8682','a3228682','pop8682@g
 INSERT INTO user VALUES (null, '케이시','010-2231-9969','a3227302','Kassie@gmail.com',null,'1','ROLE_USER');
 
 SELECT * FROM user;
+delete 
 
 CREATE TABLE `store` (
 	`id`	INT	AUTO_INCREMENT NOT NULL,
@@ -96,3 +97,46 @@ INSERT INTO menu VALUES(null, 2, '바닐라라떼',4500,null);
 INSERT INTO menu VALUES(null, 2, '모카라떼',4500,null);
 
 select * from menu;
+
+OptionTable --------------------------------------------------------------------------------
+
+CREATE TABLE `options` (
+	`id`	INT	AUTO_INCREMENT NOT NULL,
+	`menu_id` INT NOT NULL,
+	`name`	VARCHAR(255)	NULL,
+	`price`	INT	NULL,
+	`belonging_item` VARCHAR(255)	NULL,
+	PRIMARY KEY(`id`),
+	CONSTRAINT FK_menu_id FOREIGN KEY (`menu_id`) REFERENCES `menu`(`id`)
+);
+
+DROP TABLE `options`;
+
+INSERT INTO `options` VALUES(null,1, '샷 추가', 500, null);
+INSERT INTO `options` VALUES(null,1, '휘핑 추가', 500, null);
+INSERT INTO `options` VALUES(null,1, 'SMALL', 0, null);
+INSERT INTO `options` VALUES(null,1, 'MEDIUM', 500, null);
+INSERT INTO `options` VALUES(null,1, 'LARGE', 1000, null);
+
+SELECT * FROM `options`;
+
+OrderTable --------------------------------------------------------------------------------
+
+DROP TABLE `orders`;
+
+CREATE TABLE `orders` (
+	`id`	INT	AUTO_INCREMENT NOT NULL,
+	`user_id`	INT NOT NULL,
+	`menu_id`	INT	NOT NULL,
+	`amount`	INT	NULL,
+	PRIMARY KEY (`id`),
+	CONSTRAINT FK_orders_user_id FOREIGN KEY (`user_id`) REFERENCES `user`(`id`),
+	CONSTRAINT FK_orders_menu_id FOREIGN KEY (`menu_id`) REFERENCES `menu`(`id`)
+);
+
+INSERT INTO `orders` VALUES(null, 1, 1, 2);
+INSERT INTO `orders` VALUES(0,1,1,1);
+
+SELECT * FROM `orders`;
+
+

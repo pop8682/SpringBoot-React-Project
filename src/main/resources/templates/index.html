@@ -13,7 +13,7 @@
 <body>
 
 	<div sec:authorize="isAuthenticated()">
-		<div th:if="${session.user.getName() != null}">
+		<div th:if="${session.user != null}">
 			<span th:text="${session.user.getName()}" />님 반갑습니다
 		</div>
 	</div>
