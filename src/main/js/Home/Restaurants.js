@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
-
 export default class Restaurants extends Component {
 state = {
   restaurants:[],
@@ -19,17 +18,7 @@ componentWillMount=()=>{
   })
 }
 
-loadMore = () => {
-  // this.setState is async so we can use call back
-  this.setState(prevState => ({
-    page: prevState.page + 1,
-    scrolling:true
-  }), this.loadRestaurant)
-}
-
-
 loadRestaurant=async()=>{
-  
   const {per, page, restaurants,totalPages} = this.state
   const title = this.props.location.state.title
   const req = await axios.get(`/api/storeDtoes/${title}?page=${page}`)
@@ -41,8 +30,8 @@ loadRestaurant=async()=>{
     // at this point, done with scrolling
     // totalPages: res.page.totalPages
   })
+  console.log("after scrolling 'false' : " + this.state.scrolling)
 }
-
 
 handleScroll =(e)=>{
   const {scrolling, totalPages, page } = this.state
@@ -51,21 +40,36 @@ handleScroll =(e)=>{
   // totalPage가 page보다 작으면 handle할게 없으므로
   // if(totalPages <= page) return
   // console.log("=============")
-  // console.log(page)
+  // console.log("scrolling : " + scrolling)
+  // console.log("page : " + page)
+  
   const lastLi = document.querySelector('div.restaurant > a:last-child')
+
   // 페이지 전체 높이
+  if(lastLi != null){
   const lastLiOffset = lastLi.offsetTop + lastLi.clientHeight
-  // console.log(lastLi.offsetTop)      // 선택한 element top border부터 페이지 최상단까지의 높이
-  // console.log(lastLi.clientHeight)   // 선택한 element border이하 높이
+  // console.log(lastLi.offsetTop)      // 페이지 윗 끝부터 선택한 element top border까지의 높이 (픽셀)
+  // console.log(lastLi.clientHeight)   // 선택한 element 내부 높이 (픽셀)
+
   // 페이지 제일 상단부터 보이는 윈도우의 최하단까지의 높이
   const pageOffset = window.pageYOffset + window.innerHeight
   // returns the pixels the current document has been scrolled from the upper left corner of the window
-  // console.log(window.pageYOffset)
-  // 보이는 window의 크기
-  // console.log(window.innerHeight)
+  // console.log(window.pageYOffset)   // 왼쪽위 기준으로 스크롤이 내려온 길이 (픽셀)
+  // console.log(window.innerHeight)   // element와 padding을 합친 값 (픽셀)
   // 20 pixel of bottom
   var bottomOffset = 20
   if(pageOffset > lastLiOffset - bottomOffset) this.loadMore(); 
+  }
+}
+
+loadMore = () => {
+  // this.setState is async so we can use call back 
+  this.setState(prevState => ({
+    page: prevState.page + 1,
+    scrolling:true
+  }), this.loadRestaurant)
+  // 페이지 +1, scrolling false
+  console.log("after scrolling 'true' : " + this.state.scrolling)
 }
 
 
