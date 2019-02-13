@@ -28,5 +28,10 @@ public class IndexController {
 	public String deny() {
 		return "deny";
 	}
+	
+	@RequestMapping("/payment")
+	public String payment() {
+		return "payment";
+	}
 
 }

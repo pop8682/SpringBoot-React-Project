@@ -36,6 +36,4 @@ public class SecuritySuccessHandler implements AuthenticationSuccessHandler{
 		session.setAttribute("user", userRepository.findByEmailAndRole(username, role));
 		response.sendRedirect("/");
 	}
-	
-	
 }

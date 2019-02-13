@@ -19,7 +19,7 @@ INSERT INTO user VALUES (null, '박병길','010-4580-8682','a3228682','pop8682@g
 INSERT INTO user VALUES (null, '케이시','010-2231-9969','a3227302','Kassie@gmail.com',null,'1','ROLE_USER');
 
 SELECT * FROM user;
-delete 
+
 
 CREATE TABLE `store` (
 	`id`	INT	AUTO_INCREMENT NOT NULL,
@@ -129,9 +129,11 @@ CREATE TABLE `orders` (
 	`user_id`	INT NOT NULL,
 	`menu_id`	INT	NOT NULL,
 	`amount`	INT	NULL,
+	`payment`	VARCHAR(255) NOT NULL,
 	PRIMARY KEY (`id`),
 	CONSTRAINT FK_orders_user_id FOREIGN KEY (`user_id`) REFERENCES `user`(`id`),
-	CONSTRAINT FK_orders_menu_id FOREIGN KEY (`menu_id`) REFERENCES `menu`(`id`)
+	CONSTRAINT FK_orders_menu_id FOREIGN KEY (`menu_id`) REFERENCES `menu`(`id`),
+	CONSTRAINT payment_check CHECK (payment IN ('Y','N')) 
 );
 
 INSERT INTO `orders` VALUES(null, 1, 1, 2);

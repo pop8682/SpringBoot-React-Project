@@ -44,6 +44,4 @@ public class OrderController {
 		List<OrderDto> dto = orderRepository.findByUserId(user_id);
 		return dto;
 	}
-	
-	
 }

@@ -16,10 +16,10 @@ export default class Menu extends Component {
         const req = await axios({
             method:'POST',
             url:`/api/orderDtoes/${menu_id}?amount=${amount}`,
-          
         })
         const res = await req.data
-        console.log(res)
+        alert("주문하셨습니다.")
+        this.props.history.goBack();
     }
 
     handleIncrement=()=>{

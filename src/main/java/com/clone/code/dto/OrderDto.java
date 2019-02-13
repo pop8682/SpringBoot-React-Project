@@ -33,6 +33,7 @@ public class OrderDto {
 	private MenuDto menu;
 	private int amount;
 	
+	
 	public OrderDto() {
 		
 	}
