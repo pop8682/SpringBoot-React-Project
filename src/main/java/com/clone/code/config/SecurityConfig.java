@@ -16,8 +16,8 @@ import com.clone.code.dto.UserDto;
 
 
 @Configuration												
-@EnableWebSecurity											// tell spring boot to drop its autoconfigured security policy
-@EnableGlobalMethodSecurity(prePostEnabled=true)			// turn on method-level security with Spring Security sophisticated @pre and @post
+@EnableWebSecurity													// tell spring boot to drop its autoconfigured security policy
+@EnableGlobalMethodSecurity(prePostEnabled=true)					// turn on method-level security with Spring Security sophisticated @pre and @post
 public class SecurityConfig extends WebSecurityConfigurerAdapter{	// handy  base class to write policy
 	
 	@Autowired
@@ -53,13 +53,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{	// handy  base
 			.and()
 				.rememberMe().key("unique cookie").tokenValiditySeconds(60*60*24*28)
 			.and()
-				.csrf().disable()
 				.logout().deleteCookies("JSESSIONID").logoutSuccessUrl("/")
 			.and()
+				.csrf().disable()
 				.exceptionHandling()
 				.accessDeniedPage("/deny");
 	}
-	
-
-
 }

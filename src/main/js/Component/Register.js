@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {Redirect } from 'react-router-dom'
+import {Redirect } from 'react-router'
 
 
 export default class Register extends Component {
@@ -19,7 +19,8 @@ handleSubmit = async(e) => {
     const res = await req.data
     if(res !== null){
         alert(res.name + "님 반갑습니다.");
-        this.props.history.push('/mypage/login')
+        this.props.history.push('/mypage')
+        
     }
 }
 

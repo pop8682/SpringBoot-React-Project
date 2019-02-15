@@ -18,7 +18,7 @@ DROP TABLE `user`;
 INSERT INTO user VALUES (null, '박병길','010-4580-8682','a3228682','pop8682@gmail.com',null,'1','ROLE_USER');
 INSERT INTO user VALUES (null, '케이시','010-2231-9969','a3227302','Kassie@gmail.com',null,'1','ROLE_USER');
 
-SELECT * FROM user;
+SELECT * FROM `user`;
 
 
 CREATE TABLE `store` (

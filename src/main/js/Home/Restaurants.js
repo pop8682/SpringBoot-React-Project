@@ -30,7 +30,7 @@ loadRestaurant=async()=>{
     // at this point, done with scrolling
     // totalPages: res.page.totalPages
   })
-  console.log("after scrolling 'false' : " + this.state.scrolling)
+  // console.log("after scrolling 'false' : " + this.state.scrolling)
 }
 
 handleScroll =(e)=>{
@@ -69,7 +69,7 @@ loadMore = () => {
     scrolling:true
   }), this.loadRestaurant)
   // 페이지 +1, scrolling false
-  console.log("after scrolling 'true' : " + this.state.scrolling)
+  // console.log("after scrolling 'true' : " + this.state.scrolling)
 }
 
 

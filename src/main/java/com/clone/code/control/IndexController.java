@@ -33,5 +33,11 @@ public class IndexController {
 	public String payment() {
 		return "payment";
 	}
+	
+//	@RequestMapping("/logout")
+//	public String logout() {
+//		System.out.println("check logout");
+//		return "index";
+//	}
 
 }
