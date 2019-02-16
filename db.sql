@@ -40,13 +40,16 @@ CREATE TABLE `store` (
 	 PRIMARY KEY(`id`)
 );
 
-DROP TABLE `store`;
+
 
 INSERT INTO store VALUES (null,'김해','무한삼겹','121','카페',
 '김해시 전하동','김해시 가야로','1234','124.1234','123.2314',
 '운영중',null,null,null,null);
 
 SELECT * FROM store;
+
+select * FROM store;
+delete from store where sort='생선회';
 
 CREATE TABLE `category` (
 	`id`	INT	AUTO_INCREMENT NOT NULL,
