@@ -9,7 +9,7 @@ export default class Order extends Component {
   }
 
   componentWillMount=async()=>{
-    const req = await axios.get("/api/orderDtoes/")
+    const req = await axios.get("/api/orderDtoes?status=N")
     const res = req.data
     console.log(res)
     this.setState({

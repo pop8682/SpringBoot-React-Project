@@ -6,11 +6,12 @@ import Store from './Component/Store'
 import Order from './Component/Order'
 import MyPage from './Component/MyPage'
 import Navigation from './Component/Navigation'
-import Register from './Component/Register'
+import Register from './MyPage/Register'
 import Restaurants from './Home/Restaurants'
 import Restaurant from './Home/Restaurant'
 import Menu from './Home/Menu'
 import OrderConfirm from './Order/OrderConfirm'
+import ConfirmList from './MyPage/ConfirmList'
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
               <Route path="/orderConfirm" component={OrderConfirm}/>
             <Route exact path="/mypage" component={MyPage}/>   
               <Route path="/mypage/register" component={Register}/>
+              <Route path="/mypage/confirmList" component={ConfirmList}/>
           </Switch>
         </div>
       </BrowserRouter>

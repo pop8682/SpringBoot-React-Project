@@ -1,5 +1,6 @@
 package com.clone.code.control;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,19 +30,19 @@ public class OrderController {
 	public void saveOrder(@PathVariable(value="menu_id") int menu_id, @RequestParam String amount, HttpSession session) {
 		int user_id = ((UserDto) session.getAttribute("user")).getId();
 		int num = Integer.parseInt(amount);
+		Date today = new Date(new java.util.Date().getTime());
 		Optional<MenuDto> opt_menu_dto = menuRepository.findById(menu_id);
 		MenuDto menu_dto = null;
 		if(opt_menu_dto.isPresent())  menu_dto = opt_menu_dto.get();
-		
-		OrderDto dto = new OrderDto(0, user_id, menu_dto, num);
+		OrderDto dto = new OrderDto(0, user_id, menu_dto, num,"N",today, null);
 		orderRepository.save(dto);
 	}
 	
 	@GetMapping("/api/orderDtoes")
-	public List<OrderDto> getOrders(HttpSession session) {
+	public List<OrderDto> getOrders(@RequestParam String status, HttpSession session) {
+		System.out.println(status);
 		int user_id = ((UserDto) session.getAttribute("user")).getId();
-		System.out.println(user_id);
-		List<OrderDto> dto = orderRepository.findByUserId(user_id);
+		List<OrderDto> dto = orderRepository.findByUserIdAndStatus(user_id, status);
 		return dto;
 	}
 }

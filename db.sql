@@ -20,6 +20,7 @@ INSERT INTO user VALUES (null, '케이시','010-2231-9969','a3227302','Kassie@gm
 
 SELECT * FROM `user`;
 
+StoreTable --------------------------------------------------------------------------------
 
 CREATE TABLE `store` (
 	`id`	INT	AUTO_INCREMENT NOT NULL,
@@ -40,8 +41,6 @@ CREATE TABLE `store` (
 	 PRIMARY KEY(`id`)
 );
 
-
-
 INSERT INTO store VALUES (null,'김해','무한삼겹','121','카페',
 '김해시 전하동','김해시 가야로','1234','124.1234','123.2314',
 '운영중',null,null,null,null);
@@ -50,6 +49,10 @@ SELECT * FROM store;
 
 select * FROM store;
 delete from store where sort='생선회';
+
+CategoryTable --------------------------------------------------------------------------------
+
+DROP TABLE category;
 
 CREATE TABLE `category` (
 	`id`	INT	AUTO_INCREMENT NOT NULL,
@@ -60,22 +63,10 @@ CREATE TABLE `category` (
 	PRIMARY KEY(`id`)
 );
 
-DROP TABLE category;
-
 SELECT * FROM `category`;
 
-CREATE TABLE `review` (
-	`id`	INT	NOT NULL,
-	`user_id`	INT	NOT NULL,
-	`store_id`	INT	NOT NULL,
-	`star`	INT	NULL,
-	`content`	VARCHAR(1000)	NULL,
-	`date_post`	DATETIME	NULL,
-	`Field`	VARCHAR(255)	NULL,
-	CONSTRAINT FK_store_id FOREIGN KEY (store_id) REFERENCES store(id)
-);
 
-drop table review;
+MenuTable --------------------------------------------------------------------------------
 
 CREATE TABLE `menu` (
 	`id`	INT AUTO_INCREMENT NOT NULL,
@@ -101,6 +92,41 @@ INSERT INTO menu VALUES(null, 2, '모카라떼',4500,null);
 
 select * from menu;
 
+OrderTable --------------------------------------------------------------------------------
+
+DROP TABLE `orders`;
+
+CREATE TABLE `orders` (
+	`id`	INT	AUTO_INCREMENT NOT NULL,
+	`user_id`	INT NOT NULL,
+	`menu_id`	INT	NOT NULL,
+	`amount`	INT	NULL,
+	`status`	VARCHAR(2) NOT NULL,
+	`date_order`	DATETIME DEFAULT CURRENT_TIMESTAMP,
+	`result_id`		INT NULL,
+	PRIMARY KEY (`id`),
+	CONSTRAINT FK_orders_user_id FOREIGN KEY (`user_id`) REFERENCES `user`(`id`),
+	CONSTRAINT FK_orders_menu_id FOREIGN KEY (`menu_id`) REFERENCES `menu`(`id`),
+	CONSTRAINT payment_check CHECK (payment IN ('Y','N')) 
+);
+
+INSERT INTO `orders` VALUES(null, 1, 1, 2);
+INSERT INTO `orders` VALUES(0,1,1,1);
+
+SELECT * FROM `orders`;
+
+OrderResultTable --------------------------------------------------------------------------------
+
+CREATE TABLE `order_result` (
+	`id`	INT	NOT NULL,
+	`userId`	INT	NOT NULL,
+	`dateOrder`	DATETIME DEFAULT CURRENT_TIMESTAMP,
+	`status`	VARCHAR(2)	NULL,
+	`totalCost`	INT	NULL
+);
+
+SELECT * from `order_result`;
+
 OptionTable --------------------------------------------------------------------------------
 
 CREATE TABLE `options` (
@@ -123,25 +149,15 @@ INSERT INTO `options` VALUES(null,1, 'LARGE', 1000, null);
 
 SELECT * FROM `options`;
 
-OrderTable --------------------------------------------------------------------------------
-
-DROP TABLE `orders`;
-
-CREATE TABLE `orders` (
-	`id`	INT	AUTO_INCREMENT NOT NULL,
-	`user_id`	INT NOT NULL,
-	`menu_id`	INT	NOT NULL,
-	`amount`	INT	NULL,
-	`payment`	VARCHAR(255) NOT NULL,
-	PRIMARY KEY (`id`),
-	CONSTRAINT FK_orders_user_id FOREIGN KEY (`user_id`) REFERENCES `user`(`id`),
-	CONSTRAINT FK_orders_menu_id FOREIGN KEY (`menu_id`) REFERENCES `menu`(`id`),
-	CONSTRAINT payment_check CHECK (payment IN ('Y','N')) 
+CREATE TABLE `review` (
+	`id`	INT	NOT NULL,
+	`user_id`	INT	NOT NULL,
+	`store_id`	INT	NOT NULL,
+	`star`	INT	NULL,
+	`content`	VARCHAR(1000)	NULL,
+	`date_post`	DATETIME	NULL,
+	`Field`	VARCHAR(255)	NULL,
+	CONSTRAINT FK_store_id FOREIGN KEY (store_id) REFERENCES store(id)
 );
 
-INSERT INTO `orders` VALUES(null, 1, 1, 2);
-INSERT INTO `orders` VALUES(0,1,1,1);
-
-SELECT * FROM `orders`;
-
-
+drop table review;

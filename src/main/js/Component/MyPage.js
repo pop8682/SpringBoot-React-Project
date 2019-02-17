@@ -19,6 +19,7 @@ export default class MyPage extends Component {
       <div>
         <Link to="/mypage/register">회원가입</Link>
         <a href="/login">로그인</a>
+        <Link to="/mypage/confirmList">구매내역</Link>
       </div>
     )
   }
