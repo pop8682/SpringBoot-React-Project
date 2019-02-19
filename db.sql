@@ -50,6 +50,8 @@ SELECT * FROM store;
 select * FROM store;
 delete from store where sort='생선회';
 
+select * from store where title like '%포%';
+
 CategoryTable --------------------------------------------------------------------------------
 
 DROP TABLE category;

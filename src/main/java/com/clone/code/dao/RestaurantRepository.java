@@ -10,4 +10,7 @@ import com.clone.code.dto.StoreDto;
 public interface RestaurantRepository extends JpaRepository<StoreDto, Integer> {
 	
 	List<StoreDto> findAllBySort(String sort,Pageable pagable);
+	List<StoreDto> findAllBySortAndTitleContaining(String sort, String title, Pageable pagable);
+	List<StoreDto> findAllBySortAndStateContaining(String sort, String state, Pageable pagable);
+	
 }
