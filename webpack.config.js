@@ -37,8 +37,14 @@ module.exports = {
                         "plugins": ["@babel/plugin-proposal-class-properties", "@babel/plugin-transform-runtime"]
                     }
                 }]
-            }
+            },
+            // apply style
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
         ]
+
     }
 // right before create code
 

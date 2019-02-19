@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import axios from 'axios';
+import {Link} from 'react-router-dom';
+
 
 export default class Restaurants extends Component {
 
@@ -113,7 +114,8 @@ selectHandler=(e)=>{
             <option value="title" >이름</option>
             <option value="state" >지역</option>
           </select>
-          <input onChange={this.searchHandle}/>
+          <input onChange={this.searchHandle} />
+          <button className="btn btn-default">클릭</button>
         </div>
         
         {this.state.restaurants.map((item)=>{

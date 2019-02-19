@@ -1,0 +1,33 @@
+.navbar-bottom{
+    border-top: #ebebeb solid 1px;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+}
+
+#nav {
+    width:100%;
+    margin:0 auto;
+    list-style:none;
+    }
+
+#nav li {
+    float:left;
+}
+#nav a {
+    display:block;
+    text-align:center;
+    width:128px; /* fixed width */
+    text-decoration:none; 
+}
+
+.nav-text {
+    text-align: center;
+    display: inherit;
+    font-size: 12px;
+}
+
+.nav-icon {
+    font-size: 25px;
+}
+    

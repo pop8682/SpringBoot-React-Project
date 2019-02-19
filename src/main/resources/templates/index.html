@@ -3,30 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- 뷰포트 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 부트스트랩 -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- font-awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <style type="text/css">
-.grid {
-	display: grid;
-	grid-template-columns: 100px 100px 100px;
+.navbar-top {
+	border-bottom: #ebebeb solid 1px;
+	position: fixed;
+	background-color: #ffffff;
+	text-align: center;
+    display: block;
+    width: 540px;
+}
+
+#root {
+	padding-top: 41px;
+	padding-bottom: 79px;
+}
+
+#index-text {
+	text-align: center;
 }
 </style>
 </head>
 <body>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">	
+			<div class="navbar navbar-expand-lg navbar-light navbar-top">
+				<div sec:authorize="isAuthenticated()">
+					<div th:if="${session.user != null}">
+						<span th:text="${session.user.getName()}" />님 반갑습니다
+						<a href="/logout">로그아웃</a>
+					</div>
+				</div>
+				<div id="index-text">로그인 해주세요</div>
+			</div>
 
-	<div sec:authorize="isAuthenticated()">
-		<div th:if="${session.user != null}">
-			<span th:text="${session.user.getName()}" />님 반갑습니다
-			<a href="/logout">로그아웃</a>
+		
+			<div sec:authorize="hasRole('ROLE_ADMIN')"></div>
+			<div sec:authorize="hasRole('ROLE_USER')"></div>
+			<div id="root"></div>
 		</div>
+		<div class="col-sm-3"></div>
 	</div>
+</div>
 
-	<div sec:authorize="hasRole('ROLE_ADMIN')">
-	
-	</div>
-	<div sec:authorize="hasRole('ROLE_USER')">
-	
-	</div>
-
-	<div id="root"></div>
-	<script src="built/app.bundle.js"></script>
+<script src="built/app.bundle.js"></script>
 </body>
 </html>

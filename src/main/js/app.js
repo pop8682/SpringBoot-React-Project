@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Navigation/>
+          
           <Switch>
             <Route exact path="/" component={Home}/>
               <Route exact path="/restaurants/:id" component={Restaurants}/>
@@ -31,6 +31,7 @@ class App extends Component {
               <Route path="/mypage/register" component={Register}/>
               <Route path="/mypage/confirmList" component={ConfirmList}/>
           </Switch>
+          <Navigation/>
         </div>
       </BrowserRouter>
     )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import '../css/Lists.css'
 
 export default class Lists extends Component {
 
@@ -12,11 +13,10 @@ export default class Lists extends Component {
           <Link to={{
             pathname:`/restaurants/${item.id}`,
             state:{title:item.title,id:item.id}
-          }} key={item.id}>
-            <div>
-              <br/>
-              {item.name}
-              <br/>
+          }} key={item.id} className="store-id">
+            <div className="store-row">
+              <span className="row"><img src="3.jpeg" className="img"/></span>
+              <span className="row"><strong>{item.name}</strong></span>
             </div>
           </Link>
           )

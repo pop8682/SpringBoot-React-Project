@@ -1,0 +1,28 @@
+.grid {
+    
+    display: grid;
+	grid-template-columns: 180px 180px 180px;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.store-row {
+    text-align: center;
+    display: inline-table;
+}
+
+.store-row span {
+    text-align: center;
+    display: block;
+    text-decoration-style: none;
+    color: black;
+}
+
+.store-id {
+    margin: 35px 0 0px 0;
+    text-align: center;
+}
