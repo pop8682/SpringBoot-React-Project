@@ -1,0 +1,31 @@
+.mypage-login {
+    background-color: rgb(53, 193, 187);
+    text-align: center;
+    padding-top: 4px;
+    height: 35px;
+}
+
+.mypage-login a {
+    color:white;
+    text-decoration: none;
+}
+
+.mypage-register {
+    font-size: 12px;
+    color: #8b8b8b;   
+}
+
+.mypage-register span a{
+    color: #8b8b8b;
+    text-decoration: underline;
+}
+
+.mypage-register span:nth-child(2){
+    float: right;
+}
+
+.mypage-order-list {
+    color:black;
+    text-decoration: none;
+    padding-left: 20px;
+}

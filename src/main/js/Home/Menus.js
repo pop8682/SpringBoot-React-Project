@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import '../css/Menus.css'
 
 export default class Menus extends Component {
 
@@ -8,15 +9,16 @@ export default class Menus extends Component {
     const categoryId = this.props.categoryId
     const storeId = this.props.storeId
     return (
-      <div>
+      <div className="menus"> 
       {this.props.menus.map((item)=>{
           return(
             <Link to={{
                 pathname:`/restaurants/${categoryId}/restaurant/${storeId}/menu/${item.id}`,
                 state:{id:item.id, name:item.name, price:item.price}
             }} key={item.id} >
-              <h3>{item.name}</h3>
-              {item.price}
+              <p><strong>{item.name}</strong></p>
+              <p className="menus-price">{item.price}</p>
+              <hr></hr>
             </Link>
           )
         })}

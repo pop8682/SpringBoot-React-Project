@@ -3,17 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- 뷰포트 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 부트스트랩 -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- font-awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <style type="text/css">
+.login-button {
+    background-color: rgb(53, 193, 187);
+    text-align: center;
+    padding-top: 4px;
+    height: 35px;
+    color:white;
+    text-decoration: none;
+    width: 100%;
+    border: 0px;
+	 margin-top: 20px;
+	 font-weight: 500;
+}
+
+.login-input {
+    border: 0px;
+    border-bottom: #ced4da solid 1px;
+    margin-top: 150px;
+}
+
+.login-input div:nth-child(1),
+.login-input div:nth-child(3),
+.login-input div:nth-child(5){
+    font-size: 12px;
+    color: #8b8b8b;
+    margin-top: 20px;
+}
+
+.login-input div:nth-child(5) {
+	float: right;
+}
+
+
+
+.login-input input:nth-child(2),
+.login-input input:nth-child(4){
+    border: 0px;
+    border-bottom: #ced4da solid 1px;
+    width: 100%;
+}
+
 </style>
+
 </head>
 <body>
- 	<div id="login"></div>
-	<script src="built/login.bundle.js"></script>
-	<form action="/loginConfirm" method="post">
-		아이디 : <input type="text" name="username">
-		비밀번호 : <input type="text" name="password">
-		자동 로그인 <input type="checkbox" name="remember-me"/>
-		<input type="submit" value="로그인">	
-	</form>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-6">	
+					<form action="/loginConfirm" method="post" class="login-input">
+						<div>아이디</div>         
+						<input type="text" name="username"/>
+						<div>비밀번호</div>
+						<input type="text" name="password"/>
+						<div>
+							자동로그인 <input type="checkbox" name="remember-me"/>
+						</div>
+						<input type="submit" value="로그인" class="login-button">	
+					</form>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+		</div>
+
+ 	
+	
 </body>
 </html>

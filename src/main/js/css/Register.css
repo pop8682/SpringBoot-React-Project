@@ -1,0 +1,40 @@
+.register-button {
+    background-color: rgb(53, 193, 187);
+    text-align: center;
+    padding-top: 4px;
+    height: 35px;
+    color:white;
+    text-decoration: none;
+    width: 100%;
+    border: 0px;
+    margin-top: 20px;
+}
+
+.register-input {
+    border: 0px;
+    border-bottom: #ced4da solid 1px;
+    margin-top: 30px;
+}
+
+.register-input div:nth-child(1),
+.register-input div:nth-child(3),
+.register-input div:nth-child(5),
+.register-input div:nth-child(7) {
+    font-size: 12px;
+    color: #8b8b8b;
+    margin-top: 10px;
+}
+
+.register-input input:nth-child(2),
+.register-input input:nth-child(4),
+.register-input input:nth-child(6),
+.register-input input:nth-child(8) {
+    border: 0px;
+    border-bottom: #ced4da solid 1px;
+    width: 100%;
+}
+
+
+
+
+

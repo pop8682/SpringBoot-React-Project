@@ -12,10 +12,10 @@ export default class Lists extends Component {
           return(                                //it will create new function call handleClick 
           <Link to={{
             pathname:`/restaurants/${item.id}`,
-            state:{title:item.title,id:item.id}
+            state:{title:item.title,id:item.id,name:item.name}
           }} key={item.id} className="store-id">
             <div className="store-row">
-              <span className="row"><img src="3.jpeg" className="img"/></span>
+              <span className="row"><img src={`img/${item.name}.png`} className="img"/></span>
               <span className="row"><strong>{item.name}</strong></span>
             </div>
           </Link>

@@ -1,0 +1,52 @@
+.order {
+    margin-bottom: 141px;
+}
+
+
+.order-text {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.order-item p:nth-child(3) {
+    font-size: 12px;
+    color: #5c5c5c;
+}
+
+.order-item span:nth-child(1) {
+    margin-bottom: 0px;
+}
+
+.order-item span:nth-child(2) {
+    float:right
+}
+
+
+.order-total-price {
+    color: rgb(53, 193, 187)
+}
+
+.order-purchase {
+    background-color: rgb(53, 193, 187);
+    color: #ffffff;
+    height: 50px;
+    padding-top: 10px;
+}
+
+.order-nav {
+    text-align: center;
+    border-top: #ebebeb solid 1px;
+    padding-top: 10px;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 79px;
+    width: 540px;
+    background-color: white;
+}
+
+.order-nav a {
+    color : white;
+    text-decoration-style: none;
+    text-decoration: none;
+
+}

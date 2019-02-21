@@ -1,0 +1,9 @@
+.menus a {
+    text-decoration: none;
+    color: black;
+}
+
+.menus-price {
+    font-size: 12px;
+    color: #5c5c5c;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-
+import '../css/Restaurants.css'; 
 
 export default class Restaurants extends Component {
 
@@ -30,7 +30,7 @@ loadRestaurant=async()=>{
   const title = this.props.location.state.title
   const req = await axios.get(`/api/storeDtoes/${title}?select=${select}&keyword=${keyword}&page=${page}`)
   const res = await req.data
-  
+  console.log(res)
   this.setState({
     restaurants:[...restaurants, ...res],
     // append res to old restaurants
@@ -51,7 +51,7 @@ handleScroll =(e)=>{
   // console.log("=============")
   // console.log("scrolling : " + scrolling)
   // console.log("page : " + page)
-  const lastLi = document.querySelector('div.restaurant > a:last-child')
+  const lastLi = document.querySelector('div.restaurants > div:last-child')
   // 페이지 전체 높이
   if(lastLi != null){
   const lastLiOffset = lastLi.offsetTop + lastLi.clientHeight
@@ -99,38 +99,52 @@ selectHandler=(e)=>{
   this.setState({
     select:value
   })
-  
 }
 
 
   render() {
-    const id=this.props.location.state.id
+    const {id, name} = this.props.location.state
     
     return (
-      <div className="restaurant">
+      <div>
+      <div className="row restaurants-search">
         <div>
-          <select onChange={this.selectHandler} value={this.state.select}>
+          <select onChange={this.selectHandler} value={this.state.select} className="form-control">
             <option value="none" defaultValue>선택</option>
             <option value="title" >이름</option>
             <option value="state" >지역</option>
           </select>
-          <input onChange={this.searchHandle} />
-          <button className="btn btn-default">클릭</button>
         </div>
-        
+        <div className="restaurants-search-div">
+          <input onChange={this.searchHandle} placeholder="검색어를 입력해주세요" className="form-control restaurants-input "/>
+        </div>
+      </div>
+      <div className="restaurants">
         {this.state.restaurants.map((item)=>{
           return(
+            <div key={item.id}>
             <Link to={{
               pathname:`/restaurants/${id}/restaurant/${item.id}`,
-              state:{title:item.title, storeId:item.id, categoryId:id}
-            }} key={item.id}>
-              <hr/>
-              <p>{item.title}</p>
-              <p>{item.state}</p>
-              <hr/>
+              state:{
+                title:item.title, 
+                storeId:item.id, 
+                categoryId:id,
+                address:item.address_land,
+                latitude:item.latitude,
+                longitude:item.longitude
+                }
+            }}  className="row restaurants-link">
+              <div><img src={`../img/${name}.png`} className="restaurants-img"/></div>
+              <div className="restaurants-content">
+                <p><strong>{item.title}</strong></p>
+                <p className="restaurants-state">{item.state}</p>
+              </div>
             </Link>
+            <hr/>
+            </div>
           )
         })}
+      </div>
       </div>
     )
   }

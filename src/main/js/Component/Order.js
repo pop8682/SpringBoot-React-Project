@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import '../css/Order.css'
 
 export default class Order extends Component {
   state = {
@@ -28,22 +29,27 @@ export default class Order extends Component {
 
   render() {
     return (
-      <div>
-        <h1>주문내역</h1><hr/>
-        <h2>총 금액 : {this.state.totalPrice}</h2>
-        <Link to={{
-          pathname:"/orderConfirm",
-          state:{totalPrice:this.state.totalPrice}
-          }}>구매하기</Link>
+        <div className="order">
+          <h4 className="order-text"><strong>주문내역</strong></h4>
+          <hr></hr>
         {this.state.menu.map(item=>{
           return(
-            <div key={item.id}> 
-              <h2>{item.menu.name}</h2><p>{item.menu.price} {item.amount}잔</p>
-              <h3>{item.menu.price * item.amount}</h3>
+            <div key={item.id} className="order-item"> 
+              <span><strong>{item.menu.name}</strong></span>
+              <span><strong>{item.menu.price * item.amount}</strong></span>
+              <p>{item.menu.price} x {item.amount}잔</p>
+              <hr/>
             </div>
           )
         })} 
-        
+
+        <div className="order-nav">
+          <strong>총 구매 금액</strong>
+          <h1 className="order-total-price">{this.state.totalPrice}원</h1>
+          <div className="order-purchase">
+            <a href="/payment">구매하기</a>
+          </div>
+        </div>  
       </div>
     )
   }

@@ -1,0 +1,41 @@
+.restaurants-search {
+    text-align: center;
+    padding: 10px 15px 0 15px;
+}
+
+.restaurants-search-div {
+    margin-left: 10px;
+    margin-bottom: 15px;
+    width: 80%;
+}
+
+.restaurants-input {
+    border: 0px;
+    border-radius: 0rem; 
+    border-bottom: #ced4da solid 1px;
+}
+
+.restaurants a{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+.restaurants-state{
+    font-size: 12px;
+    color: #5c5c5c;
+}
+
+.restaurants-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+
+.restaurants-content {
+    margin-left: 25px;
+}
+
+.restaurants-link {
+    padding: 10px 15px 0 15px;
+}

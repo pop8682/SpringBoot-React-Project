@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {Redirect } from 'react-router'
+import '../css/Register.css'
 
 
 export default class Register extends Component {
@@ -34,12 +34,16 @@ handleChange=(e)=>{
 
   render() {
     return (
-    <form onSubmit={this.handleSubmit} >
-        이름 : <input name="name" type="text" onChange={this.handleChange}/>
-        이메일 : <input name="email"type="text" onChange={this.handleChange}/>
-        비밀번호 : <input name="password" type="text" onChange={this.handleChange}/>
-        전화번호 : <input name="phone" type="text" onChange={this.handleChange}/>
-        <button type="submit">회원가입</button>
+    <form onSubmit={this.handleSubmit} className="register-input">
+        <div>이름</div>         
+        <input name="name" type="text" onChange={this.handleChange} />
+        <div>이메일</div>
+        <input name="email"type="text" onChange={this.handleChange} />
+        <div>비밀번호</div> 
+        <input name="password" type="text" onChange={this.handleChange} />
+        <div>전화번호</div>
+        <input name="phone" type="text" onChange={this.handleChange} />
+        <div><button type="submit" className="register-button">회원가입</button></div>
     </form> 
     )
   }

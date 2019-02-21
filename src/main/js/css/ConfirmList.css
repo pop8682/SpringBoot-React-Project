@@ -1,0 +1,31 @@
+.confirm {
+    text-align: center;
+}
+
+.confirm-text {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.confirm-total-price {
+    color: rgb(53, 193, 187)
+}
+
+.confrim-item p:nth-child(3) {
+    font-size: 12px;
+    color: #5c5c5c;
+}
+
+.confirm-item span:nth-child(1) {
+    margin-bottom: 0px;
+}
+
+.confirm-item span:nth-child(2) {
+    float:right
+}
+
+.confirm-date {
+    color: rgb(53, 193, 187);
+    margin-bottom: 15px;
+}
