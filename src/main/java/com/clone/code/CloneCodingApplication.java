@@ -2,12 +2,17 @@ package com.clone.code;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class CloneCodingApplication {
+public class CloneCodingApplication extends SpringBootServletInitializer{
 
-//	freeMarkerConfigurer.getTaglibFactory().setClasspathTlds(singletonList("/META-INF/security.tld"));
-	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(CloneCodingApplication.class);
+	}
+
 	public static void main(String[] args) {
 		
 		SpringApplication.run(CloneCodingApplication.class, args);
