@@ -34,7 +34,7 @@ public class RepositoryConfig extends RepositoryRestConfigurerAdapter{
 }
 ```
 
-![Figure](file:///Users/byeonggilpark/Desktopimage.png)
+![Alt Figure](/Users/byeonggilpark/Desktopimage.png)
 
 
 ## Thymeleaf
