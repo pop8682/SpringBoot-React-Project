@@ -35,6 +35,7 @@ public class RepositoryConfig extends RepositoryRestConfigurerAdapter{
 ```
 
 ![image](./image/image.png)
+test image
 
 
 ## Thymeleaf
