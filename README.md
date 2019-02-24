@@ -34,6 +34,7 @@ public class RepositoryConfig extends RepositoryRestConfigurerAdapter{
 }
 ```
 
+![alt text](image.png)
 
 
 ## Thymeleaf
